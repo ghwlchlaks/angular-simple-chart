@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-main',
@@ -8,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 export class HomeMainComponent implements OnInit {
 
   title = 'fortnite-api-angular';
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
+  searchClick() {
+    this.router.navigate(['/detail']);
+  }
 }
