@@ -5,6 +5,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 import { AppComponent } from './app.component';
+import { HomeModule } from './home/home.module';
+import { AppRoutingModule } from './app-routing.module';
+
 
 @NgModule({
   declarations: [
@@ -14,7 +17,9 @@ import { AppComponent } from './app.component';
     BrowserModule,
     NgbModule,
     FontAwesomeModule,
-    NgxChartsModule
+    NgxChartsModule,
+    HomeModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
