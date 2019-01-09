@@ -8,13 +8,13 @@ import { Router } from '@angular/router';
 })
 export class HomeMainComponent implements OnInit {
 
-  title = 'fortnite-api-angular';
   constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
-  searchClick() {
-    this.router.navigate(['/detail']);
+  searchClick(searchName: String) {
+    // console.log(searchName);
+    this.router.navigate(['/detail'], {queryParams: {name: searchName}});
   }
 }

@@ -1,9 +1,9 @@
 <div class="jumbotron">
   <div class="container">
     <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" #searchName>
     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-    <button (click)="searchClick()" class="btn btn-primary">Submit</button>
+    <button (click)="searchClick(searchName.value)" class="btn btn-primary">Submit</button>
   </div>
 </div>
 

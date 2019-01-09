@@ -1,3 +1,10 @@
-<p>
-  home-detail works!
-</p>
+<ngx-charts-number-card
+  [view]="numberCardView"
+  [scheme]="numberCardColorScheme"
+  [results]="numberCardSingle"
+  [cardColor]="numberCardColor"
+  [bandColor]="numberCardBandColor"
+  [textColor]="numberCardTextColor"
+  [emptyColor]="numberCardEmptyColor"
+  (select)="NumberCardOnSelect($event)">
+</ngx-charts-number-card>
