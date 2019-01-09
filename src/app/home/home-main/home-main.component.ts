@@ -7,14 +7,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./home-main.component.css']
 })
 export class HomeMainComponent implements OnInit {
+  selectedPlatform;
+  platforms = ['PC', 'XBOX', 'PS4'];
 
   constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
-  searchClick(searchName: String) {
-    // console.log(searchName);
-    this.router.navigate(['/detail'], {queryParams: {name: searchName}});
+  searchClick(searchName: String, selectedPlatform: String) {
+    this.router.navigate(['/detail'], {queryParams: {name: searchName, platform: selectedPlatform}});
   }
 }

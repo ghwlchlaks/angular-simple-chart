@@ -34,6 +34,9 @@ export class HomeDetailComponent implements OnInit {
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
       this.name = params['name'];
+      /*
+        api call
+      */
       this.ApiData = d_userStats;
       this.ApiStatus = this.ApiData.status;
       this.ApiValue = this.ApiData.value;
