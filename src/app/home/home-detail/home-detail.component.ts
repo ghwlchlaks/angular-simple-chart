@@ -58,6 +58,7 @@ export class HomeDetailComponent implements OnInit {
       this.ApiStatus = this.ApiData.status;
       this.ApiValue = this.ApiData.value;
       if (this.ApiStatus) {
+        // totals data filter
         Object.keys(this.ApiValue.totals).forEach((value: string, index: number) => {
           if (Object.keys(this.ApiValue.totals).length - 1 !== index) {
             this.numberCardData_total.push({
@@ -66,7 +67,8 @@ export class HomeDetailComponent implements OnInit {
             });
           }
         });
-
+        // stats data filter
+        
       } else {
         console.log('error no user');
       }
