@@ -1,10 +1,25 @@
+<h1 id="username">{{name}}</h1>
+
 <ngx-charts-number-card
-  [view]="numberCardView"
-  [scheme]="numberCardColorScheme"
-  [results]="numberCardSingle"
-  [cardColor]="numberCardColor"
-  [bandColor]="numberCardBandColor"
-  [textColor]="numberCardTextColor"
-  [emptyColor]="numberCardEmptyColor"
-  (select)="NumberCardOnSelect($event)">
+  [view]="numberCardView_total"
+  [scheme]="numberCardColorScheme_total"
+  [results]="numberCardSingle_total"
+  [cardColor]="numberCardColor_total"
+  [bandColor]="numberCardBandColor_total"
+  [textColor]="numberCardTextColor_total"
+  [emptyColor]="numberCardEmptyColor_total"
+  [innerPadding]="numberCardInnerPadding_total"
+  (select)="NumberCardOnSelect_total($event)">
+</ngx-charts-number-card>
+
+<ngx-charts-number-card
+  [view]="numberCardView_solo"
+  [scheme]="numberCardColorScheme_solo"
+  [results]="numberCardSingle_solo"
+  [cardColor]="numberCardColor_solo"
+  [bandColor]="numberCardBandColor_solo"
+  [textColor]="numberCardTextColor_solo"
+  [emptyColor]="numberCardEmptyColor_solo"
+  [innerPadding]="numberCardInnerPadding_solo"
+  (select)="NumberCardOnSelect_solo($event)">
 </ngx-charts-number-card>

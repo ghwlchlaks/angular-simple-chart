@@ -16,19 +16,36 @@ export class HomeDetailComponent implements OnInit {
   ApiStatus: boolean;
   ApiValue: IUserStats;
 
-  numberCardData: Array<INumberCardData> = [];
-  numberCardSingle: any[];
-  numberCardView: any[] = [1000, 400];
-  numberCardColorScheme = {
+  numberCardData_total: Array<INumberCardData> = [];
+  numberCardData_solo: Array<INumberCardData> = [];
+
+  // total number card setup
+  numberCardSingle_total: any[];
+  numberCardView_total: any[] = [1000, 400];
+  numberCardColorScheme_total = {
     domain: ['#5AA454', '#A10A28', '#C7B42C']
   };
-  numberCardColor;
-  numberCardBandColor;
-  numberCardTextColor;
-  numberCardEmptyColor;
+  numberCardColor_total;
+  numberCardBandColor_total;
+  numberCardTextColor_total;
+  numberCardEmptyColor_total;
+  numberCardInnerPadding_total = 15;
+
+  // solo number card setup
+  numberCardSingle_solo: any[];
+  numberCardView_solo: any[] = [1200, 200];
+  numberCardColorScheme_solo = {
+    domain: ['#5AA454', '#A10A28', '#C7B42C']
+  };
+  numberCardColor_solo;
+  numberCardBandColor_solo;
+  numberCardTextColor_solo;
+  numberCardEmptyColor_solo;
+  numberCardInnerPadding_solo = 0;
 
   constructor(private route: ActivatedRoute) {
-    Object.assign(this, { numberCardSingle: this.numberCardData });
+    Object.assign(this, { numberCardSingle_total: this.numberCardData_total });
+    Object.assign(this, { numberCardSingle_solo: this.numberCardData_total });
   }
 
   ngOnInit() {
@@ -43,7 +60,7 @@ export class HomeDetailComponent implements OnInit {
       if (this.ApiStatus) {
         Object.keys(this.ApiValue.totals).forEach((value: string, index: number) => {
           if (Object.keys(this.ApiValue.totals).length - 1 !== index) {
-            this.numberCardData.push({
+            this.numberCardData_total.push({
               'name' : value,
               'value' : this.ApiValue.totals[value]
             });
@@ -56,7 +73,11 @@ export class HomeDetailComponent implements OnInit {
     });
   }
 
-  NumberCardOnSelect(event) {
+  NumberCardOnSelect_total(event) {
+    console.log(event);
+  }
+
+  NumberCardOnSelect_solo(event) {
     console.log(event);
   }
 }
