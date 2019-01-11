@@ -29,6 +29,8 @@ export class HomeDetailComponent implements OnInit {
     {name : 'top12', value: 0},
     {name : 'top25', value: 0},
   ];
+  pieData_matchedPlayed: Array<IPieData> = [
+  ];
 
   // total number card setup
   numberCardSingle_total: any[];
@@ -86,6 +88,14 @@ export class HomeDetailComponent implements OnInit {
   };
   pieGradient_placeTop = false;
 
+  // advanced pie place top setup
+  pieResult_matchedPlayed: any[];
+  pieView_matchedPlayed: any[] = [1200, 200];
+  pieColorScheme_matchedPlayed = {
+    domain: ['#5AA454', '#A10A28', '#C7B42C']
+  };
+  pieGradient_matchedPlayed = false;
+
   constructor(private route: ActivatedRoute) {
     // number card assign
     Object.assign(this, { numberCardSingle_total: this.numberCardData_total });
@@ -94,6 +104,7 @@ export class HomeDetailComponent implements OnInit {
     Object.assign(this, { numberCardSingle_squad: this.numberCardData_squad });
     // pie assign
     Object.assign(this, { pieResult_placeTop: this.pieData_placeTop });
+    Object.assign(this, { pieResult_matchedPlayed: this.pieData_matchedPlayed });
   }
 
   ngOnInit() {
@@ -156,6 +167,12 @@ export class HomeDetailComponent implements OnInit {
           } else if (index === 3) {
             // top25_solo
             this.pieData_placeTop[6].value += this.ApiValue.stats[value];
+          } else if (index === 4 || index === 14 || index === 24) {
+            // matchesplayed_solo, matchesplayed_duo, matchesplayed_squad
+            this.pieData_matchedPlayed.push({
+              'name': value,
+              'value': this.ApiValue.stats[value]
+            });
           }
         });
       } else {
@@ -177,6 +194,9 @@ export class HomeDetailComponent implements OnInit {
     console.log(event);
   }
   pieOnSelect_placeTop(event) {
+    console.log(event);
+  }
+  pieOnSelect_matchedPlayed(event) {
     console.log(event);
   }
 }

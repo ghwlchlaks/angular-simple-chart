@@ -22,6 +22,15 @@ place top pie
 (select)="pieOnSelect_placeTop($event)">
 </ngx-charts-advanced-pie-chart>
 
+matchedplayed pie
+<ngx-charts-advanced-pie-chart
+[view]="pieView_matchedPlayed"
+[scheme]="pieColorScheme_matchedPlayed"
+[results]="pieResult_matchedPlayed"
+[gradient]="pieGradient_matchedPlayed"
+(select)="pieOnSelect_matchedPlayed($event)">
+</ngx-charts-advanced-pie-chart>
+
 solo card
 <ngx-charts-number-card
   [view]="numberCardView_solo"
