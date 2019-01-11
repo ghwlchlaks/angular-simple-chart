@@ -1,7 +1,7 @@
 <h1 id="username">{{name}} {{apiUsername}}</h1>
 <h2 id="lastupdate">{{apiLastUpdate}}</h2>
 <h3 id="platform">{{platform}} {{apiPlatform}}</h3>
-total card
+
 <ngx-charts-number-card
   [view]="numberCardView_total"
   [scheme]="numberCardColorScheme_total"
@@ -14,7 +14,6 @@ total card
   (select)="NumberCardOnSelect_total($event)">
 </ngx-charts-number-card>
 
-place top pie
 <ngx-charts-advanced-pie-chart
 [view]="pieView_placeTop"
 [scheme]="pieColorScheme_placeTop"
@@ -23,7 +22,6 @@ place top pie
 (select)="pieOnSelect_placeTop($event)">
 </ngx-charts-advanced-pie-chart>
 
-matchedplayed pie
 <ngx-charts-advanced-pie-chart
 [view]="pieView_matchedPlayed"
 [scheme]="pieColorScheme_matchedPlayed"
@@ -32,7 +30,6 @@ matchedplayed pie
 (select)="pieOnSelect_matchedPlayed($event)">
 </ngx-charts-advanced-pie-chart>
 
-solo card
 <ngx-charts-number-card
   [view]="numberCardView_solo"
   [scheme]="numberCardColorScheme_solo"
@@ -45,9 +42,6 @@ solo card
   (select)="NumberCardOnSelect_solo($event)">
 </ngx-charts-number-card>
 
-
-
-duo card
 <ngx-charts-number-card
   [view]="numberCardView_duo"
   [scheme]="numberCardColorScheme_duo"
@@ -60,7 +54,6 @@ duo card
   (select)="NumberCardOnSelect_duo($event)">
 </ngx-charts-number-card>
 
-squad card
 <ngx-charts-number-card
   [view]="numberCardView_squad"
   [scheme]="numberCardColorScheme_squad"
@@ -73,7 +66,6 @@ squad card
   (select)="NumberCardOnSelect_squad($event)">
 </ngx-charts-number-card>
 
-pie grid
 <ngx-charts-pie-grid
   [view]="pieView_score"
   [scheme]="pieColorScheme_score"

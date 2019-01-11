@@ -7,7 +7,7 @@
     <button (click)="searchClick(searchName.value, selectedPlatform)" class="btn btn-primary">Submit</button>
   </div>
   
-  <ng-select [searchable]="false" [items]="platforms" [(ngModel)]="selectedPlatform">
+  <ng-select [searchable]="false" ng-selected="platforms[0]" [items]="platforms" [(ngModel)]="selectedPlatform">
   </ng-select> 
 
 </div>

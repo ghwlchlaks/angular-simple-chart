@@ -7,8 +7,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./home-main.component.css']
 })
 export class HomeMainComponent implements OnInit {
-  selectedPlatform;
+
   platforms = ['PC', 'XBOX', 'PS4'];
+  selectedPlatform = this.platforms[0];
 
   constructor(private router: Router) { }
 
