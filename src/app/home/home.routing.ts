@@ -8,9 +8,11 @@ const routes: Routes = [
     children: [
       {
         path: 'detail',
-        component: HomeDetailComponent
+        component: HomeDetailComponent,
+        data: {animation: 'homeDetailPage'}
       }
-  ]},
+  ], data: {animation: 'homeMainPage'},
+  },
 ];
 
 export const HomeRoutes = RouterModule.forChild(routes);

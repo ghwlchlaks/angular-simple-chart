@@ -3,7 +3,9 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', loadChildren: './home/home.module#HomeModule' }
+  {
+    path: '', loadChildren: './home/home.module#HomeModule', data: {animation: 'homeMainPage'},
+  }
 ];
 
 @NgModule({

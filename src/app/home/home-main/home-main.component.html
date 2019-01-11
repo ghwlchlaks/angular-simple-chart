@@ -1,15 +1,23 @@
 
-<div class="jumbotron">
-  <div class="container">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" #searchName>
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-    <button (click)="searchClick(searchName.value, selectedPlatform)" class="btn btn-primary">Submit</button>
+<div [@openClose]="isOpen ? 'open' : 'closed'">
+
+  <div class="jumbotron">
+    <div class="container">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" #searchName>
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      <button (click)="searchClick(searchName.value, selectedPlatform)" class="btn btn-primary">Submit</button>
+    </div>
+    <ng-select [searchable]="false" ng-selected="platforms[0]" [items]="platforms" [(ngModel)]="selectedPlatform">
+    </ng-select> 
   </div>
-  
-  <ng-select [searchable]="false" ng-selected="platforms[0]" [items]="platforms" [(ngModel)]="selectedPlatform">
-  </ng-select> 
 
+
+  <!-- <div [@routeAnimation]="isOpen ? true : false"> -->
+  <!-- <div [@routeAnimation]="getAnimationData(routerOutlet)">
+    <router-outlet #routerOutlet="outlet"></router-outlet>
+  </div> -->
+      <p>The box is now {{ isOpen ? 'Open' : 'Closed' }}!</p>
+      <router-outlet #routerOutlet="outlet"></router-outlet>
+      
 </div>
-
-<router-outlet></router-outlet>
