@@ -13,6 +13,15 @@ total card
   (select)="NumberCardOnSelect_total($event)">
 </ngx-charts-number-card>
 
+place top pie
+<ngx-charts-advanced-pie-chart
+[view]="pieView_placeTop"
+[scheme]="pieColorScheme_placeTop"
+[results]="pieResult_placeTop"
+[gradient]="pieGradient_placeTop"
+(select)="pieOnSelect_placeTop($event)">
+</ngx-charts-advanced-pie-chart>
+
 solo card
 <ngx-charts-number-card
   [view]="numberCardView_solo"
@@ -25,7 +34,8 @@ solo card
   [innerPadding]="numberCardInnerPadding_solo"
   (select)="NumberCardOnSelect_solo($event)">
 </ngx-charts-number-card>
-solo pie 
+
+
 
 duo card
 <ngx-charts-number-card
@@ -39,7 +49,6 @@ duo card
   [innerPadding]="numberCardInnerPadding_duo"
   (select)="NumberCardOnSelect_duo($event)">
 </ngx-charts-number-card>
-duo pie
 
 squad card
 <ngx-charts-number-card
@@ -53,5 +62,4 @@ squad card
   [innerPadding]="numberCardInnerPadding_squad"
   (select)="NumberCardOnSelect_squad($event)">
 </ngx-charts-number-card>
-squad pie
 
