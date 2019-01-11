@@ -1,5 +1,6 @@
-<h1 id="username">{{name}}</h1>
-
+<h1 id="username">{{name}} {{apiUsername}}</h1>
+<h2 id="lastupdate">{{apiLastUpdate}}</h2>
+<h3 id="platform">{{platform}} {{apiPlatform}}</h3>
 total card
 <ngx-charts-number-card
   [view]="numberCardView_total"
@@ -72,3 +73,10 @@ squad card
   (select)="NumberCardOnSelect_squad($event)">
 </ngx-charts-number-card>
 
+pie grid
+<ngx-charts-pie-grid
+  [view]="pieView_score"
+  [scheme]="pieColorScheme_score"
+  [results]="pieResults_score"
+  (select)="pieOnSelect_score($event)">
+</ngx-charts-pie-grid>

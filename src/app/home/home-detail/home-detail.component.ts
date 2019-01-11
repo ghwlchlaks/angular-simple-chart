@@ -12,10 +12,15 @@ import { INumberCardData, IPieData } from '../types/t_ngxChart';
 })
 export class HomeDetailComponent implements OnInit {
   name: string;
+  platform: string;
+
   ApiData: IReturnStats;
   ApiStatus: boolean;
   ApiValue: IUserStats;
 
+  apiUsername: String;
+  apiPlatform: String;
+  apiLastUpdate: string;
   numberCardData_total: Array<INumberCardData> = [];
   numberCardData_solo: Array<INumberCardData> = [];
   numberCardData_duo: Array<INumberCardData> = [];
@@ -29,8 +34,8 @@ export class HomeDetailComponent implements OnInit {
     {name : 'top12', value: 0},
     {name : 'top25', value: 0},
   ];
-  pieData_matchedPlayed: Array<IPieData> = [
-  ];
+  pieData_matchedPlayed: Array<IPieData> = [];
+  pieData_score: Array<IPieData> = [];
 
   // total number card setup
   numberCardSingle_total: any[];
@@ -96,6 +101,24 @@ export class HomeDetailComponent implements OnInit {
   };
   pieGradient_matchedPlayed = false;
 
+  // pie grid score setup
+  pieResults_score: any[];
+  pieView_score: any[] = [700, 400];
+  // options
+  showXAxis = true;
+  showYAxis = true;
+  gradient = false;
+  showLegend = true;
+  showXAxisLabel = true;
+  xAxisLabel = 'Country';
+  showYAxisLabel = true;
+  yAxisLabel = 'Population';
+  pieColorScheme_score = {
+    domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
+  };
+  // line, area
+  autoScale = true;
+
   constructor(private route: ActivatedRoute) {
     // number card assign
     Object.assign(this, { numberCardSingle_total: this.numberCardData_total });
@@ -105,11 +128,13 @@ export class HomeDetailComponent implements OnInit {
     // pie assign
     Object.assign(this, { pieResult_placeTop: this.pieData_placeTop });
     Object.assign(this, { pieResult_matchedPlayed: this.pieData_matchedPlayed });
+    Object.assign(this, { pieResults_score: this.pieData_score });
   }
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
       this.name = params['name'];
+      this.platform = params['platform'];
       /*
         api call
       */
@@ -117,6 +142,11 @@ export class HomeDetailComponent implements OnInit {
       this.ApiStatus = this.ApiData.status;
       this.ApiValue = this.ApiData.value;
       if (this.ApiStatus) {
+        // platform
+        this.apiPlatform = this.ApiValue.platform;
+        this.apiUsername = this.ApiValue.username;
+        // lastupdate time
+        this.apiLastUpdate = this.getDate(this.ApiValue.lastupdate);
         // totals data filter
         Object.keys(this.ApiValue.totals).forEach((value: string, index: number) => {
           if (Object.keys(this.ApiValue.totals).length - 1 !== index) {
@@ -129,23 +159,44 @@ export class HomeDetailComponent implements OnInit {
         // stats data filter
         Object.keys(this.ApiValue.stats).forEach((value: string, index: number) => {
           if (index === 0 || index === 5 || index === 6 || index === 7 || index === 8) {
-            // kill_solo kd_solo winrate_solo, score_solo minutedsplayed_solo
+            // kill_solo kd_solo score_solo, score_solo minutedsplayed_solo
             this.numberCardData_solo.push({
               'name': value,
               'value': this.ApiValue.stats[value]
             });
+            if (index === 7) {
+              // grid pie score_solo
+              this.pieData_score.push({
+                'name': value,
+                'value': this.ApiValue.stats[value]
+              });
+            }
           } else if (index === 10 || index === 15 || index === 16 || index === 17 || index === 18) {
-            // kill_duo kd_duo winrate_duo scroe_duo minutedsplayed_duo
+            // kill_duo kd_duo score_duo scroe_duo minutedsplayed_duo
             this.numberCardData_duo.push({
               'name': value,
               'value': this.ApiValue.stats[value]
             });
+            if (index === 17) {
+              // grid pie score_duo
+              this.pieData_score.push({
+                'name': value,
+                'value': this.ApiValue.stats[value]
+              });
+            }
           } else if (index === 20 || index === 25 || index === 26 || index === 27 || index === 28) {
-            // kill_squad kd_squad winrate_squad score_squad minutedsplayed_squad
+            // kill_squad kd_squad score_squad score_squad minutedsplayed_squad
             this.numberCardData_squad.push({
               'name': value,
               'value': this.ApiValue.stats[value]
             });
+            if (index === 27) {
+              // grid pie score_squad
+              this.pieData_score.push({
+                'name': value,
+                'value': this.ApiValue.stats[value]
+              });
+            }
           } else if (index === 1 || index === 11 || index === 21) {
             // top1_solo top1_duo top1_squad
             this.pieData_placeTop[0].value += this.ApiValue.stats[value];
@@ -198,5 +249,17 @@ export class HomeDetailComponent implements OnInit {
   }
   pieOnSelect_matchedPlayed(event) {
     console.log(event);
+  }
+  pieOnSelect_score(event) {
+    console.log(event);
+  }
+  private getDate(strDate: String): string {
+    const strData_split = strDate.split('T');
+    const year = strData_split[0].split('-')[0];
+    const month = strData_split[0].split('-')[1];
+    const day = strData_split[0].split('-')[2];
+    const hour = strData_split[1].split(':')[0];
+    const min = strData_split[1].split(':')[1];
+    return year + '년 ' + month + '월 ' + day + '일 ' + hour + '시 ' + min + '분 ';
   }
 }
