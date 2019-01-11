@@ -1,5 +1,6 @@
 <h1 id="username">{{name}}</h1>
 
+total card
 <ngx-charts-number-card
   [view]="numberCardView_total"
   [scheme]="numberCardColorScheme_total"
@@ -12,6 +13,7 @@
   (select)="NumberCardOnSelect_total($event)">
 </ngx-charts-number-card>
 
+solo card
 <ngx-charts-number-card
   [view]="numberCardView_solo"
   [scheme]="numberCardColorScheme_solo"
@@ -23,3 +25,33 @@
   [innerPadding]="numberCardInnerPadding_solo"
   (select)="NumberCardOnSelect_solo($event)">
 </ngx-charts-number-card>
+solo pie 
+
+duo card
+<ngx-charts-number-card
+  [view]="numberCardView_duo"
+  [scheme]="numberCardColorScheme_duo"
+  [results]="numberCardSingle_duo"
+  [cardColor]="numberCardColor_duo"
+  [bandColor]="numberCardBandColor_duo"
+  [textColor]="numberCardTextColor_duo"
+  [emptyColor]="numberCardEmptyColor_duo"
+  [innerPadding]="numberCardInnerPadding_duo"
+  (select)="NumberCardOnSelect_duo($event)">
+</ngx-charts-number-card>
+duo pie
+
+squad card
+<ngx-charts-number-card
+  [view]="numberCardView_squad"
+  [scheme]="numberCardColorScheme_squad"
+  [results]="numberCardSingle_squad"
+  [cardColor]="numberCardColor_squad"
+  [bandColor]="numberCardBandColor_squad"
+  [textColor]="numberCardTextColor_squad"
+  [emptyColor]="numberCardEmptyColor_squad"
+  [innerPadding]="numberCardInnerPadding_squad"
+  (select)="NumberCardOnSelect_squad($event)">
+</ngx-charts-number-card>
+squad pie
+

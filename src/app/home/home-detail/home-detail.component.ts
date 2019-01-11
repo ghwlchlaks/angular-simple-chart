@@ -18,6 +18,8 @@ export class HomeDetailComponent implements OnInit {
 
   numberCardData_total: Array<INumberCardData> = [];
   numberCardData_solo: Array<INumberCardData> = [];
+  numberCardData_duo: Array<INumberCardData> = [];
+  numberCardData_squad: Array<INumberCardData> = [];
 
   // total number card setup
   numberCardSingle_total: any[];
@@ -43,9 +45,35 @@ export class HomeDetailComponent implements OnInit {
   numberCardEmptyColor_solo;
   numberCardInnerPadding_solo = 0;
 
+  // duo number card setup
+  numberCardSingle_duo: any[];
+  numberCardView_duo: any[] = [1200, 200];
+  numberCardColorScheme_duo = {
+    domain: ['#5AA454', '#A10A28', '#C7B42C']
+  };
+  numberCardColor_duo;
+  numberCardBandColor_duo;
+  numberCardTextColor_duo;
+  numberCardEmptyColor_duo;
+  numberCardInnerPadding_duo = 0;
+
+  // squad number card setup
+  numberCardSingle_squad: any[];
+  numberCardView_squad: any[] = [1200, 200];
+  numberCardColorScheme_squad = {
+    domain: ['#5AA454', '#A10A28', '#C7B42C']
+  };
+  numberCardColor_squad;
+  numberCardBandColor_squad;
+  numberCardTextColor_squad;
+  numberCardEmptyColor_squad;
+  numberCardInnerPadding_squad = 0;
+
   constructor(private route: ActivatedRoute) {
     Object.assign(this, { numberCardSingle_total: this.numberCardData_total });
-    Object.assign(this, { numberCardSingle_solo: this.numberCardData_total });
+    Object.assign(this, { numberCardSingle_solo: this.numberCardData_solo });
+    Object.assign(this, { numberCardSingle_duo: this.numberCardData_duo });
+    Object.assign(this, { numberCardSingle_squad: this.numberCardData_squad });
   }
 
   ngOnInit() {
@@ -68,7 +96,27 @@ export class HomeDetailComponent implements OnInit {
           }
         });
         // stats data filter
-        
+        Object.keys(this.ApiValue.stats).forEach((value: string, index: number) => {
+          if (index === 0 || index === 5 || index === 6 || index === 7 || index === 8) {
+            // kill_solo kd_solo winrate_solo, score_solo minutedsplayed_solo
+            this.numberCardData_solo.push({
+              'name': value,
+              'value': this.ApiValue.stats[value]
+            });
+          } else if (index === 10 || index === 15 || index === 16 || index === 17 || index === 18) {
+            // kill_duo kd_duo winrate_duo scroe_duo minutedsplayed_duo
+            this.numberCardData_duo.push({
+              'name': value,
+              'value': this.ApiValue.stats[value]
+            });
+          } else if (index === 20 || index === 25 || index === 26 || index === 27 || index === 28) {
+            // kill_squad kd_squad winrate_squad score_squad minutedsplayed_squad
+            this.numberCardData_squad.push({
+              'name': value,
+              'value': this.ApiValue.stats[value]
+            });
+          }
+        });
       } else {
         console.log('error no user');
       }
@@ -78,8 +126,13 @@ export class HomeDetailComponent implements OnInit {
   NumberCardOnSelect_total(event) {
     console.log(event);
   }
-
   NumberCardOnSelect_solo(event) {
+    console.log(event);
+  }
+  NumberCardOnSelect_duo(event) {
+    console.log(event);
+  }
+  NumberCardOnSelect_squad(event) {
     console.log(event);
   }
 }
