@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { d_userStats } from '../datas/d_userStats';
 import { IReturnStats, IUserStats } from '../types/t_userStats';
@@ -119,7 +119,9 @@ export class HomeDetailComponent implements OnInit {
   // line, area
   autoScale = true;
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute,
+    private router: Router
+    ) {
     // number card assign
     Object.assign(this, { numberCardSingle_total: this.numberCardData_total });
     Object.assign(this, { numberCardSingle_solo: this.numberCardData_solo });
