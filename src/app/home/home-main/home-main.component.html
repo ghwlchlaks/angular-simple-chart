@@ -22,7 +22,7 @@
         'float': 'left',
         'width': '60%',
         'margin-left': '10px'
-      }" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" #searchName>
+      }" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" [value]="name" #searchName>
       
       <ng-select id="platformSelect"
       [ngStyle]="isOpen && {

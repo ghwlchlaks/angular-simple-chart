@@ -13,6 +13,7 @@ import { slideInAnimation } from '../animation';
 
 export class HomeMainComponent implements OnInit {
 
+  name = '';
   platforms = ['PC', 'XBOX', 'PS4'];
   selectedPlatform = this.platforms[0];
   isOpen = true;
@@ -26,6 +27,7 @@ export class HomeMainComponent implements OnInit {
         this.router.navigate(['/']);
       } else {
         this.isOpen = false;
+        this.name = params['name'];
       }
     });
   }
