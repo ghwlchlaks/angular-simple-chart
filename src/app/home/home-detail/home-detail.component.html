@@ -1,74 +1,82 @@
-<h1 id="username">{{name}} {{apiUsername}}</h1>
-<h2 id="lastupdate">{{apiLastUpdate}}</h2>
-<h3 id="platform">{{platform}} {{apiPlatform}}</h3>
+<div *ngIf="!ApiData" class="spinner">
+  <div class="bounce1"></div>
+  <div class="bounce2"></div>
+  <div class="bounce3"></div>
+</div>
 
-<ngx-charts-number-card
-  [view]="numberCardView_total"
-  [scheme]="numberCardColorScheme_total"
-  [results]="numberCardSingle_total"
-  [cardColor]="numberCardColor_total"
-  [bandColor]="numberCardBandColor_total"
-  [textColor]="numberCardTextColor_total"
-  [emptyColor]="numberCardEmptyColor_total"
-  [innerPadding]="numberCardInnerPadding_total"
-  (select)="NumberCardOnSelect_total($event)">
-</ngx-charts-number-card>
+<div *ngIf="ApiData">
+  <h1 id="username">{{name}} {{apiUsername}}</h1>
+  <h2 id="lastupdate">{{apiLastUpdate}}</h2>
+  <h3 id="platform">{{platform}} {{apiPlatform}}</h3>
 
-<ngx-charts-advanced-pie-chart
-[view]="pieView_placeTop"
-[scheme]="pieColorScheme_placeTop"
-[results]="pieResult_placeTop"
-[gradient]="pieGradient_placeTop"
-(select)="pieOnSelect_placeTop($event)">
-</ngx-charts-advanced-pie-chart>
+  <ngx-charts-number-card
+    [view]="numberCardView_total"
+    [scheme]="numberCardColorScheme_total"
+    [results]="numberCardSingle_total"
+    [cardColor]="numberCardColor_total"
+    [bandColor]="numberCardBandColor_total"
+    [textColor]="numberCardTextColor_total"
+    [emptyColor]="numberCardEmptyColor_total"
+    [innerPadding]="numberCardInnerPadding_total"
+    (select)="NumberCardOnSelect_total($event)">
+  </ngx-charts-number-card>
 
-<ngx-charts-advanced-pie-chart
-[view]="pieView_matchedPlayed"
-[scheme]="pieColorScheme_matchedPlayed"
-[results]="pieResult_matchedPlayed"
-[gradient]="pieGradient_matchedPlayed"
-(select)="pieOnSelect_matchedPlayed($event)">
-</ngx-charts-advanced-pie-chart>
+  <ngx-charts-advanced-pie-chart
+  [view]="pieView_placeTop"
+  [scheme]="pieColorScheme_placeTop"
+  [results]="pieResult_placeTop"
+  [gradient]="pieGradient_placeTop"
+  (select)="pieOnSelect_placeTop($event)">
+  </ngx-charts-advanced-pie-chart>
 
-<ngx-charts-number-card
-  [view]="numberCardView_solo"
-  [scheme]="numberCardColorScheme_solo"
-  [results]="numberCardSingle_solo"
-  [cardColor]="numberCardColor_solo"
-  [bandColor]="numberCardBandColor_solo"
-  [textColor]="numberCardTextColor_solo"
-  [emptyColor]="numberCardEmptyColor_solo"
-  [innerPadding]="numberCardInnerPadding_solo"
-  (select)="NumberCardOnSelect_solo($event)">
-</ngx-charts-number-card>
+  <ngx-charts-advanced-pie-chart
+  [view]="pieView_matchedPlayed"
+  [scheme]="pieColorScheme_matchedPlayed"
+  [results]="pieResult_matchedPlayed"
+  [gradient]="pieGradient_matchedPlayed"
+  (select)="pieOnSelect_matchedPlayed($event)">
+  </ngx-charts-advanced-pie-chart>
 
-<ngx-charts-number-card
-  [view]="numberCardView_duo"
-  [scheme]="numberCardColorScheme_duo"
-  [results]="numberCardSingle_duo"
-  [cardColor]="numberCardColor_duo"
-  [bandColor]="numberCardBandColor_duo"
-  [textColor]="numberCardTextColor_duo"
-  [emptyColor]="numberCardEmptyColor_duo"
-  [innerPadding]="numberCardInnerPadding_duo"
-  (select)="NumberCardOnSelect_duo($event)">
-</ngx-charts-number-card>
+  <ngx-charts-number-card
+    [view]="numberCardView_solo"
+    [scheme]="numberCardColorScheme_solo"
+    [results]="numberCardSingle_solo"
+    [cardColor]="numberCardColor_solo"
+    [bandColor]="numberCardBandColor_solo"
+    [textColor]="numberCardTextColor_solo"
+    [emptyColor]="numberCardEmptyColor_solo"
+    [innerPadding]="numberCardInnerPadding_solo"
+    (select)="NumberCardOnSelect_solo($event)">
+  </ngx-charts-number-card>
 
-<ngx-charts-number-card
-  [view]="numberCardView_squad"
-  [scheme]="numberCardColorScheme_squad"
-  [results]="numberCardSingle_squad"
-  [cardColor]="numberCardColor_squad"
-  [bandColor]="numberCardBandColor_squad"
-  [textColor]="numberCardTextColor_squad"
-  [emptyColor]="numberCardEmptyColor_squad"
-  [innerPadding]="numberCardInnerPadding_squad"
-  (select)="NumberCardOnSelect_squad($event)">
-</ngx-charts-number-card>
+  <ngx-charts-number-card
+    [view]="numberCardView_duo"
+    [scheme]="numberCardColorScheme_duo"
+    [results]="numberCardSingle_duo"
+    [cardColor]="numberCardColor_duo"
+    [bandColor]="numberCardBandColor_duo"
+    [textColor]="numberCardTextColor_duo"
+    [emptyColor]="numberCardEmptyColor_duo"
+    [innerPadding]="numberCardInnerPadding_duo"
+    (select)="NumberCardOnSelect_duo($event)">
+  </ngx-charts-number-card>
 
-<ngx-charts-pie-grid
-  [view]="pieView_score"
-  [scheme]="pieColorScheme_score"
-  [results]="pieResults_score"
-  (select)="pieOnSelect_score($event)">
-</ngx-charts-pie-grid>
+  <ngx-charts-number-card
+    [view]="numberCardView_squad"
+    [scheme]="numberCardColorScheme_squad"
+    [results]="numberCardSingle_squad"
+    [cardColor]="numberCardColor_squad"
+    [bandColor]="numberCardBandColor_squad"
+    [textColor]="numberCardTextColor_squad"
+    [emptyColor]="numberCardEmptyColor_squad"
+    [innerPadding]="numberCardInnerPadding_squad"
+    (select)="NumberCardOnSelect_squad($event)">
+  </ngx-charts-number-card>
+
+  <ngx-charts-pie-grid
+    [view]="pieView_score"
+    [scheme]="pieColorScheme_score"
+    [results]="pieResults_score"
+    (select)="pieOnSelect_score($event)">
+  </ngx-charts-pie-grid>
+</div>

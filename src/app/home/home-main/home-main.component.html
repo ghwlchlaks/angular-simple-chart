@@ -1,6 +1,5 @@
 
 <div [@openClose]="isOpen ? 'open' : 'closed'">
-
   <div class="jumbotron" [ngStyle]="{'height': isOpen ? '100vh' : '10vh'}">
     <!-- <div class="container" id="wrapper" [ngStyle]="{'padding-top': isOpen ? '10px' : '0px'}"> -->
     <div class="container"
@@ -51,8 +50,7 @@
     </div>
     
   </div>
-
-    <p>The box is now {{ isOpen ? 'Open' : 'Closed' }}!</p>
+  
     <router-outlet #routerOutlet="outlet"></router-outlet>
       
 </div>

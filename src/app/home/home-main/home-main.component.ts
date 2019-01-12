@@ -29,6 +29,7 @@ export class HomeMainComponent implements OnInit {
     return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
   }
   toggle() {
-    this.isOpen = !this.isOpen;
+    // this.isOpen = !this.isOpen;
+    this.isOpen = false;
   }
 }
