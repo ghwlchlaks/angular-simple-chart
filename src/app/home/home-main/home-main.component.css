@@ -1,3 +1,7 @@
 .jumbotron{
     height: 100vh;
+    padding-top: 0%;
+}
+#wrapper {
+    position: relative;
 }
