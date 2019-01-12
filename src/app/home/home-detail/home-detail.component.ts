@@ -140,7 +140,8 @@ export class HomeDetailComponent implements OnInit {
       /*
         api call
       */
-      this.ApiData = d_userStats;
+      setTimeout(() => {
+        this.ApiData = d_userStats;
       this.ApiStatus = this.ApiData.status;
       this.ApiValue = this.ApiData.value;
       if (this.ApiStatus) {
@@ -231,6 +232,9 @@ export class HomeDetailComponent implements OnInit {
       } else {
         console.log('error no user');
       }
+      }, 3000);
+
+      this.ApiData = null;
     });
   }
 
