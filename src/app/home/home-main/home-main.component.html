@@ -1,7 +1,14 @@
 
 <div [@openClose]="isOpen ? 'open' : 'closed'">
-  <div class="jumbotron" [ngStyle]="{'height': isOpen ? '100vh' : '10vh'}">
-    <!-- <div class="container" id="wrapper" [ngStyle]="{'padding-top': isOpen ? '10px' : '0px'}"> -->
+  <div class="jumbotron" style="background-image:url('http://localhost:4200/assets/fortnite.jpg')"
+  [ngStyle]="isOpen && {
+    'height' : '100vh',
+    'background-size' : '100%'
+  } || !isOpen && {
+    'height' : '10vh',
+    'background-size' : '25%'
+  }">
+
     <div class="container"
     [ngStyle]="isOpen && {
       'padding-top': '25%',

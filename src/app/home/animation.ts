@@ -13,10 +13,12 @@ trigger('openClose', [
     transition('open => closed', group([
         query('.jumbotron', [
             style({
-                height: '100vh'
+                'height': '100vh',
+                'background-size' : '100%'
             }),
             animate('1s', style({
-                height: '10vh'
+                'height': '10vh',
+                'background-size' : '25%'
             }))
         ]),
         query('.container', [
