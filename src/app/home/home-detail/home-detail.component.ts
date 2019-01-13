@@ -13,7 +13,6 @@ import { INumberCardData, IPieData } from '../types/t_ngxChart';
 export class HomeDetailComponent implements OnInit {
   name: string;
   platform: string;
-
   ApiData: IReturnStats;
   ApiStatus: boolean;
   ApiValue: IUserStats;
@@ -22,6 +21,7 @@ export class HomeDetailComponent implements OnInit {
   apiPlatform: String;
   apiLastUpdate: string;
 
+  emptyColor = '#343a40';
   numberCardData_total: Array<INumberCardData>;
   numberCardData_solo: Array<INumberCardData>;
   numberCardData_duo: Array<INumberCardData>;
@@ -34,7 +34,7 @@ export class HomeDetailComponent implements OnInit {
   numberCardSingle_total: any[];
   numberCardView_total: any[] = [800, 200];
   numberCardColorScheme_total = {
-    domain: ['#5AA454', '#A10A28', '#C7B42C']
+    domain: ['#343a40', '#343a40', '#343a40']
   };
   numberCardColor_total;
   numberCardBandColor_total;
@@ -46,7 +46,7 @@ export class HomeDetailComponent implements OnInit {
   numberCardSingle_solo: any[];
   numberCardView_solo: any[] = [800, 100];
   numberCardColorScheme_solo = {
-    domain: ['#5AA454', '#A10A28', '#C7B42C']
+    domain: ['#343a40', '#343a40', '#343a40']
   };
   numberCardColor_solo;
   numberCardBandColor_solo;
@@ -58,7 +58,7 @@ export class HomeDetailComponent implements OnInit {
   numberCardSingle_duo: any[];
   numberCardView_duo: any[] = [800, 100];
   numberCardColorScheme_duo = {
-    domain: ['#5AA454', '#A10A28', '#C7B42C']
+    domain: ['#343a40', '#343a40', '#343a40']
   };
   numberCardColor_duo;
   numberCardBandColor_duo;
@@ -70,7 +70,7 @@ export class HomeDetailComponent implements OnInit {
   numberCardSingle_squad: any[];
   numberCardView_squad: any[] = [800, 100];
   numberCardColorScheme_squad = {
-    domain: ['#5AA454', '#A10A28', '#C7B42C']
+    domain: ['#343a40', '#343a40', '#343a40']
   };
   numberCardColor_squad;
   numberCardBandColor_squad;
@@ -302,14 +302,14 @@ export class HomeDetailComponent implements OnInit {
     // const heigth_math: number = 3 * 5;
     console.log(Eheight);
     console.log(Ewidth);
-    if (Ewidth > 0) {
-      this.numberCardView_total = [Ewidth / width_divide * width_multi, 200];
-      this.numberCardView_solo = [Ewidth / width_divide * width_multi, 200];
-      this.numberCardView_duo = [Ewidth / width_divide * width_multi, 200];
-      this.numberCardView_squad = [Ewidth / width_divide * width_multi, 200];
-      this.pieView_matchedPlayed =  [Ewidth / width_divide * width_multi, 200];
-      this.pieView_placeTop = [Ewidth / width_divide * width_multi, 200];
-      this.pieView_score = [Ewidth / width_divide * width_multi, 200];
-    }
+    // if (Ewidth > 0) {
+    //   this.numberCardView_total = [Ewidth / width_divide * width_multi, 200];
+    //   this.numberCardView_solo = [Ewidth / width_divide * width_multi, 200];
+    //   this.numberCardView_duo = [Ewidth / width_divide * width_multi, 200];
+    //   this.numberCardView_squad = [Ewidth / width_divide * width_multi, 200];
+    //   this.pieView_matchedPlayed =  [Ewidth / width_divide * width_multi, 200];
+    //   this.pieView_placeTop = [Ewidth / width_divide * width_multi, 200];
+    //   this.pieView_score = [Ewidth / width_divide * width_multi, 200];
+    // }
   }
 }
