@@ -32,7 +32,7 @@ export class HomeDetailComponent implements OnInit {
 
   // total number card setup
   numberCardSingle_total: any[];
-  numberCardView_total: any[] = [1000, 400];
+  numberCardView_total: any[] = [800, 200];
   numberCardColorScheme_total = {
     domain: ['#5AA454', '#A10A28', '#C7B42C']
   };
@@ -44,7 +44,7 @@ export class HomeDetailComponent implements OnInit {
 
   // solo number card setup
   numberCardSingle_solo: any[];
-  numberCardView_solo: any[] = [1200, 200];
+  numberCardView_solo: any[] = [800, 100];
   numberCardColorScheme_solo = {
     domain: ['#5AA454', '#A10A28', '#C7B42C']
   };
@@ -56,7 +56,7 @@ export class HomeDetailComponent implements OnInit {
 
   // duo number card setup
   numberCardSingle_duo: any[];
-  numberCardView_duo: any[] = [1200, 200];
+  numberCardView_duo: any[] = [800, 100];
   numberCardColorScheme_duo = {
     domain: ['#5AA454', '#A10A28', '#C7B42C']
   };
@@ -68,7 +68,7 @@ export class HomeDetailComponent implements OnInit {
 
   // squad number card setup
   numberCardSingle_squad: any[];
-  numberCardView_squad: any[] = [1200, 200];
+  numberCardView_squad: any[] = [800, 100];
   numberCardColorScheme_squad = {
     domain: ['#5AA454', '#A10A28', '#C7B42C']
   };
@@ -80,7 +80,7 @@ export class HomeDetailComponent implements OnInit {
 
   // advanced pie place top setup
   pieResult_placeTop: any[];
-  pieView_placeTop: any[] = [1200, 200];
+  pieView_placeTop: any[] = [800, 200];
   pieColorScheme_placeTop = {
     domain: ['#5AA454', '#A10A28', '#C7B42C']
   };
@@ -88,7 +88,7 @@ export class HomeDetailComponent implements OnInit {
 
   // advanced pie place top setup
   pieResult_matchedPlayed: any[];
-  pieView_matchedPlayed: any[] = [1200, 200];
+  pieView_matchedPlayed: any[] = [800, 200];
   pieColorScheme_matchedPlayed = {
     domain: ['#5AA454', '#A10A28', '#C7B42C']
   };
@@ -112,8 +112,14 @@ export class HomeDetailComponent implements OnInit {
   // line, area
   autoScale = true;
 
-  constructor(private route: ActivatedRoute
-    ) {
+  constructor(private route: ActivatedRoute) {
+    this.numberCardView_total = [innerWidth / 5 * 3, 200];
+    this.numberCardView_solo = [innerWidth / 5 * 3, 200];
+    this.numberCardView_duo = [innerWidth / 5 * 3, 200];
+    this.numberCardView_squad = [innerWidth / 5 * 3, 200];
+    this.pieView_matchedPlayed =  [innerWidth / 5 * 3, 200];
+    this.pieView_placeTop = [innerWidth / 5 * 3, 200];
+    this.pieView_score = [innerWidth / 5 * 3, 200];
   }
 
   ngOnInit() {
@@ -136,7 +142,7 @@ export class HomeDetailComponent implements OnInit {
       } else {
         console.log('error no user');
       }
-      }, 3000);
+      }, 1000);
     });
   }
 
@@ -287,5 +293,18 @@ export class HomeDetailComponent implements OnInit {
     const hour = strData_split[1].split(':')[0];
     const min = strData_split[1].split(':')[1];
     return year + '년 ' + month + '월 ' + day + '일 ' + hour + '시 ' + min + '분 ';
+  }
+  onResize(event) {
+    const Ewidth = event.target.innerWidth;
+    console.log(Ewidth);
+    if (Ewidth > 0) {
+      this.numberCardView_total = [event.target.innerWidth / 5 * 3, 200];
+      this.numberCardView_solo = [event.target.innerWidth / 5 * 3, 200];
+      this.numberCardView_duo = [event.target.innerWidth / 5 * 3, 200];
+      this.numberCardView_squad = [event.target.innerWidth / 5 * 3, 200];
+      this.pieView_matchedPlayed =  [event.target.innerWidth / 5 * 3, 200];
+      this.pieView_placeTop = [event.target.innerWidth / 5 * 3, 200];
+      this.pieView_score = [event.target.innerWidth / 5 * 3, 200];
+    }
   }
 }

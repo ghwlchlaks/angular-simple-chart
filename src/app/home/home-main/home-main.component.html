@@ -48,9 +48,23 @@
       }" (click)="searchClick(searchName.value, selectedPlatform)" class="btn btn-primary">Submit</button>
 
     </div>
-    
   </div>
   
+  <div class="hor_ads"></div>
+
+  <div class="row">
+    <div class="column1">
+      <div class="ads"></div>
+    </div>
+    <div class="column2">
+      <router-outlet #routerOutlet="outlet"></router-outlet>
+    </div>
+    <div class="column3">
+      <div class="ads"></div>
+    </div>
+  </div>
+  <!-- <div id="detail">
     <router-outlet #routerOutlet="outlet"></router-outlet>
-      
+  </div>    -->
+
 </div>

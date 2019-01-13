@@ -4,12 +4,14 @@
   <div class="bounce3"></div>
 </div>
 
-<div *ngIf="ApiData">
+<div class="detail_content" *ngIf="ApiData">
   <h1 id="username">{{name}} {{apiUsername}}</h1>
   <h2 id="lastupdate">{{apiLastUpdate}}</h2>
   <h3 id="platform">{{platform}} {{apiPlatform}}</h3>
 
+  <div id="numberCard1">
   <ngx-charts-number-card
+  (window:resize)="onResize($event)"
     [view]="numberCardView_total"
     [scheme]="numberCardColorScheme_total"
     [results]="numberCardSingle_total"
@@ -20,22 +22,27 @@
     [innerPadding]="numberCardInnerPadding_total"
     (select)="NumberCardOnSelect_total($event)">
   </ngx-charts-number-card>
+  </div>
 
-  <ngx-charts-advanced-pie-chart
-  [view]="pieView_placeTop"
-  [scheme]="pieColorScheme_placeTop"
-  [results]="pieResult_placeTop"
-  [gradient]="pieGradient_placeTop"
-  (select)="pieOnSelect_placeTop($event)">
-  </ngx-charts-advanced-pie-chart>
+  <div class="ngxPie1">
+    <ngx-charts-advanced-pie-chart
+    [view]="pieView_placeTop"
+    [scheme]="pieColorScheme_placeTop"
+    [results]="pieResult_placeTop"
+    [gradient]="pieGradient_placeTop"
+    (select)="pieOnSelect_placeTop($event)">
+    </ngx-charts-advanced-pie-chart>
+  </div>
 
-  <ngx-charts-advanced-pie-chart
-  [view]="pieView_matchedPlayed"
-  [scheme]="pieColorScheme_matchedPlayed"
-  [results]="pieResult_matchedPlayed"
-  [gradient]="pieGradient_matchedPlayed"
-  (select)="pieOnSelect_matchedPlayed($event)">
-  </ngx-charts-advanced-pie-chart>
+  <div class="ngxPie2">
+    <ngx-charts-advanced-pie-chart
+    [view]="pieView_matchedPlayed"
+    [scheme]="pieColorScheme_matchedPlayed"
+    [results]="pieResult_matchedPlayed"
+    [gradient]="pieGradient_matchedPlayed"
+    (select)="pieOnSelect_matchedPlayed($event)">
+    </ngx-charts-advanced-pie-chart>
+  </div>
 
   <ngx-charts-number-card
     [view]="numberCardView_solo"
@@ -73,10 +80,13 @@
     (select)="NumberCardOnSelect_squad($event)">
   </ngx-charts-number-card>
 
-  <ngx-charts-pie-grid
-    [view]="pieView_score"
-    [scheme]="pieColorScheme_score"
-    [results]="pieResults_score"
-    (select)="pieOnSelect_score($event)">
-  </ngx-charts-pie-grid>
+  <div class="ngxPie3">
+    <ngx-charts-pie-grid
+      [view]="pieView_score"
+      [scheme]="pieColorScheme_score"
+      [results]="pieResults_score"
+      (select)="pieOnSelect_score($event)">
+    </ngx-charts-pie-grid>
+  </div>
+
 </div>

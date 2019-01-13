@@ -40,3 +40,18 @@
       transform: scale(1.0);
     }
   }
+
+.detail_content {
+  margin: 0 auto;
+}
+.ngxPie1 {
+  margin-bottom: 130px;
+  margin-top: 130px;
+}
+.ngxPie2 {
+  margin-bottom: 130px;
+  margin-top: 130px;
+}
+#numberCard1 {
+  display: grid;
+}
