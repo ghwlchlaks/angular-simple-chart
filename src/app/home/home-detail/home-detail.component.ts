@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { d_userStats } from '../datas/d_userStats';
 import { IReturnStats, IUserStats } from '../types/t_userStats';
@@ -112,7 +112,7 @@ export class HomeDetailComponent implements OnInit {
   // line, area
   autoScale = true;
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private router: Router) {
     this.numberCardView_total = [innerWidth / 5 * 3, 200];
     this.numberCardView_solo = [innerWidth / 5 * 3, 200];
     this.numberCardView_duo = [innerWidth / 5 * 3, 200];
@@ -141,8 +141,9 @@ export class HomeDetailComponent implements OnInit {
         this.createCharts(this.ApiValue);
       } else {
         console.log('error no user');
+        this.router.navigate(['/not-found']);
       }
-      }, 1000);
+      }, 3000);
     });
   }
 

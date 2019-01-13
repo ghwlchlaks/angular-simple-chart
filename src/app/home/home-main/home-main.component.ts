@@ -23,7 +23,10 @@ export class HomeMainComponent implements OnInit {
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
-      if (!(params['name'] && params['platform'])) {
+      // console.log(this.router.url);
+      if (this.router.url === '/not-found') {
+        this.isOpen = false;
+      } else if (!(params['name'] && params['platform'])) {
         this.router.navigate(['/']);
       } else {
         this.isOpen = false;

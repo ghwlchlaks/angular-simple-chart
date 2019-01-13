@@ -9,9 +9,10 @@ import { HomeDetailComponent } from './home-detail/home-detail.component';
 
 import { HomeRoutes } from './home.routing';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { HomeNotFoundComponent } from './home-not-found/home-not-found.component';
 
 @NgModule({
-  declarations: [HomeMainComponent, HomeDetailComponent],
+  declarations: [HomeMainComponent, HomeDetailComponent, HomeNotFoundComponent],
   imports: [
     CommonModule,
     NgbModule,
