@@ -22,10 +22,13 @@
     width: 20%;
 }
 .ads {
-    margin: 10%;
+    margin-left: 10%;
+    margin-right: 10%;
     border: 2px solid;
     color: burlywood;
     height: 100%;
+    margin-top: 5%;
+    margin-bottom: 5%
 }
 .hor_ads {
     margin-left: 1%;

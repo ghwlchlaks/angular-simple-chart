@@ -295,16 +295,21 @@ export class HomeDetailComponent implements OnInit {
     return year + '년 ' + month + '월 ' + day + '일 ' + hour + '시 ' + min + '분 ';
   }
   onResize(event) {
-    const Ewidth = event.target.innerWidth;
+    const Ewidth: number = event.target.innerWidth;
+    const width_divide = 5;
+    const width_multi = 3;
+    const Eheight: number = event.target.innerHeight;
+    // const heigth_math: number = 3 * 5;
+    console.log(Eheight);
     console.log(Ewidth);
     if (Ewidth > 0) {
-      this.numberCardView_total = [event.target.innerWidth / 5 * 3, 200];
-      this.numberCardView_solo = [event.target.innerWidth / 5 * 3, 200];
-      this.numberCardView_duo = [event.target.innerWidth / 5 * 3, 200];
-      this.numberCardView_squad = [event.target.innerWidth / 5 * 3, 200];
-      this.pieView_matchedPlayed =  [event.target.innerWidth / 5 * 3, 200];
-      this.pieView_placeTop = [event.target.innerWidth / 5 * 3, 200];
-      this.pieView_score = [event.target.innerWidth / 5 * 3, 200];
+      this.numberCardView_total = [Ewidth / width_divide * width_multi, 200];
+      this.numberCardView_solo = [Ewidth / width_divide * width_multi, 200];
+      this.numberCardView_duo = [Ewidth / width_divide * width_multi, 200];
+      this.numberCardView_squad = [Ewidth / width_divide * width_multi, 200];
+      this.pieView_matchedPlayed =  [Ewidth / width_divide * width_multi, 200];
+      this.pieView_placeTop = [Ewidth / width_divide * width_multi, 200];
+      this.pieView_score = [Ewidth / width_divide * width_multi, 200];
     }
   }
 }
