@@ -6,13 +6,27 @@
   </div>
 
   <div class="detail_content" *ngIf="ApiData">
-    
-  <div class="card" style="margin-bottom: 10px; background-color: #343a40">
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item" style="background-color: #343a40; color: #ffffff">{{name}} {{apiUsername}}</li>
-        <li class="list-group-item" style="background-color: #343a40; color: #ffffff">{{apiLastUpdate}}</li>
-        <li class="list-group-item" style="background-color: #343a40; color: #ffffff">{{platform}} {{apiPlatform}}</li>
-      </ul>
+
+  <div class="container">
+      <div class="row">
+        <div class="bd-callout bd-callout-info col-sm" style="background-color: #343a40; color: #ffffff;">
+          <h3 class="info_title">USERNAME</h3><hr />
+          <h5 class="info_content">{{apiUsername}}</h5>
+        <!-- {{name}} -->
+        </div>
+        
+        <div class="bd-callout bd-callout-warning col-sm info" style="background-color: #343a40; color: #ffffff;">
+          <h3 class="info_title">PLATFORM</h3><hr />  
+          <h5 class="info_content">{{apiPlatform}}</h5>
+            <!-- {{platform}}  -->
+        </div>
+
+        <div class="bd-callout bd-callout-danger col-sm info" style="background-color: #343a40; color: #ffffff;">
+          <h3 class="info_title">LAST UPDATE</h3><hr />  
+          <h5 class="info_content">{{apiLastUpdate}}</h5>
+        </div>
+        
+      </div>
     </div>
 
     <div class="card border-dark mb-3" style="background-color: #5a5ed2; font-weight: bold">

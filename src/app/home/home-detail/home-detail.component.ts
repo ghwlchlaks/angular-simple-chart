@@ -82,7 +82,7 @@ export class HomeDetailComponent implements OnInit {
   pieResult_placeTop: any[];
   pieView_placeTop: any[] = [800, 200];
   pieColorScheme_placeTop = {
-    domain: ['#5AA454', '#A10A28', '#C7B42C']
+    domain: ['#0077f7', '#27a243', '#d53343', '#f7bb07', '#575bcb', '#169db2', '#bb2af7']
   };
   pieGradient_placeTop = false;
 
@@ -90,7 +90,7 @@ export class HomeDetailComponent implements OnInit {
   pieResult_matchedPlayed: any[];
   pieView_matchedPlayed: any[] = [800, 200];
   pieColorScheme_matchedPlayed = {
-    domain: ['#5AA454', '#A10A28', '#C7B42C']
+    domain: ['#0077f7', '#27a243', '#d53343']
   };
   pieGradient_matchedPlayed = false;
 
@@ -107,7 +107,7 @@ export class HomeDetailComponent implements OnInit {
   showYAxisLabel = true;
   yAxisLabel = 'Population';
   pieColorScheme_score = {
-    domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
+    domain: ['#0077f7', '#27a243', '#d53343'],
   };
   // line, area
   autoScale = true;
@@ -292,7 +292,7 @@ export class HomeDetailComponent implements OnInit {
     const day = strData_split[0].split('-')[2];
     const hour = strData_split[1].split(':')[0];
     const min = strData_split[1].split(':')[1];
-    return year + '년 ' + month + '월 ' + day + '일 ' + hour + '시 ' + min + '분 ';
+    return year + '-' + month + '-' + day + '-' + hour + ':' + min + '';
   }
   onResize(event) {
     const Ewidth: number = event.target.innerWidth;
