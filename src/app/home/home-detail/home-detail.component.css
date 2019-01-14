@@ -44,14 +44,7 @@
 .detail_content {
   margin-top: 5%;
 }
-/* .ngxPie1 {
-  margin-bottom: 130px;
-  margin-top: 130px;
-}
-.ngxPie2 {
-  margin-bottom: 130px;
-  margin-top: 130px;
-} */
+
 #numberCard1 {
   display: grid;
 }
@@ -108,4 +101,9 @@
 
 .bd-callout-danger h4 {
   color: #d9534f
+}
+
+.card-body {
+  padding: 0;
+  margin: 0;
 }

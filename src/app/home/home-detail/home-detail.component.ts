@@ -113,13 +113,15 @@ export class HomeDetailComponent implements OnInit {
   autoScale = true;
 
   constructor(private route: ActivatedRoute, private router: Router) {
-    this.numberCardView_total = [innerWidth / 5 * 3, 200];
-    this.numberCardView_solo = [innerWidth / 5 * 3, 200];
-    this.numberCardView_duo = [innerWidth / 5 * 3, 200];
-    this.numberCardView_squad = [innerWidth / 5 * 3, 200];
-    this.pieView_matchedPlayed =  [innerWidth / 5 * 3, 200];
-    this.pieView_placeTop = [innerWidth / 5 * 3, 200];
-    this.pieView_score = [innerWidth / 5 * 3, 200];
+    if (innerWidth / 2 > 300 && innerHeight / 2.5 > 200) {
+      this.numberCardView_total = [innerWidth / 2, innerHeight / 1.8];
+      this.numberCardView_solo = [innerWidth / 2, innerHeight / 2];
+      this.numberCardView_duo = [innerWidth / 2, innerHeight / 2];
+      this.numberCardView_squad = [innerWidth / 2, innerHeight / 2];
+      this.pieView_matchedPlayed =  [innerWidth / 2, innerHeight / 2.5];
+      this.pieView_placeTop = [innerWidth / 2, innerHeight / 2.5];
+      this.pieView_score = [innerWidth / 2, innerHeight / 1.6];
+    }
   }
 
   ngOnInit() {
@@ -143,7 +145,7 @@ export class HomeDetailComponent implements OnInit {
         console.log('error no user');
         this.router.navigate(['/not-found']);
       }
-      }, 3000);
+      }, 500);
     });
   }
 
@@ -297,20 +299,15 @@ export class HomeDetailComponent implements OnInit {
   }
   onResize(event) {
     const Ewidth: number = event.target.innerWidth;
-    const width_divide = 5;
-    const width_multi = 3;
     const Eheight: number = event.target.innerHeight;
-    // const heigth_math: number = 3 * 5;
-    console.log(Eheight);
-    console.log(Ewidth);
-    // if (Ewidth > 0) {
-    //   this.numberCardView_total = [Ewidth / width_divide * width_multi, 200];
-    //   this.numberCardView_solo = [Ewidth / width_divide * width_multi, 200];
-    //   this.numberCardView_duo = [Ewidth / width_divide * width_multi, 200];
-    //   this.numberCardView_squad = [Ewidth / width_divide * width_multi, 200];
-    //   this.pieView_matchedPlayed =  [Ewidth / width_divide * width_multi, 200];
-    //   this.pieView_placeTop = [Ewidth / width_divide * width_multi, 200];
-    //   this.pieView_score = [Ewidth / width_divide * width_multi, 200];
-    // }
+    if (Ewidth / 2 > 300 && Eheight / 2.5 > 200) {
+      this.numberCardView_total = [Ewidth / 2, Eheight / 1.8];
+      this.numberCardView_solo = [Ewidth / 2, Eheight / 2];
+      this.numberCardView_duo = [Ewidth / 2, Eheight / 2];
+      this.numberCardView_squad = [Ewidth / 2, Eheight / 2];
+      this.pieView_matchedPlayed =  [Ewidth / 2, Eheight / 2.5];
+      this.pieView_placeTop = [Ewidth / 2, Eheight / 2.5];
+      this.pieView_score = [Ewidth / 2, Eheight / 1.6];
+    }
   }
 }
