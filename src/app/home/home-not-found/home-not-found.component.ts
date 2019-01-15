@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {  ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home-not-found',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-not-found.component.css']
 })
 export class HomeNotFoundComponent implements OnInit {
+  userId: string;
+  platform: string;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, ) {
+  }
 
   ngOnInit() {
+    this.route.queryParams.subscribe((params) => {
+      this.userId = params['name'];
+      this.platform = params['platform'];
+    });
   }
 
 }

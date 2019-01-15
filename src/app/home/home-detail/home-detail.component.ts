@@ -138,12 +138,12 @@ export class HomeDetailComponent implements OnInit {
       this.ApiData = d_userStats;
       this.ApiStatus = this.ApiData.status;
       this.ApiValue = this.ApiData.value;
-
+      this.ApiStatus = false;
       if (this.ApiStatus) {
         this.createCharts(this.ApiValue);
       } else {
         console.log('error no user');
-        this.router.navigate(['/not-found']);
+        this.router.navigate(['/not-found'], {queryParams: {name: this.name, platform: this.platform} });
       }
       }, 500);
     });

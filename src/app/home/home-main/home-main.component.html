@@ -59,32 +59,16 @@
   
   <div class="hor_ads"></div>
 
-  <!-- <div class="row">
-    <div class="column1">
-      <div class="ads"></div>
-    </div>
-    <div class="column2">
-      <router-outlet #routerOutlet="outlet"></router-outlet>
-    </div>
-    <div class="column3">
-      <div class="ads"></div>
-    </div>
-  </div> -->
-
 
       <div class="row">
         <div class="col-sm">
           <div class="ads"></div>
         </div>
         <div class="col-sm">
-            <router-outlet #routerOutlet="outlet"></router-outlet>
+            <router-outlet #routerOutlet="outlet">{{name}}, {{searchName.value}}</router-outlet>
         </div>
         <div class="col-sm">
           <div class="ads"></div>
         </div>
       </div>
-  <!-- <div id="detail">
-    <router-outlet #routerOutlet="outlet"></router-outlet>
-  </div>    -->
-
 </div>
