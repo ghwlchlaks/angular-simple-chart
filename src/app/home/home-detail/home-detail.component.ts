@@ -5,6 +5,8 @@ import { d_userStats } from '../datas/d_userStats';
 import { IReturnStats, IUserStats } from '../types/t_userStats';
 import { INumberCardData, IPieData } from '../types/t_ngxChart';
 
+import { FortniteApiService } from '../../services/fortnite-api.service';
+
 @Component({
   selector: 'app-home-detail',
   templateUrl: './home-detail.component.html',
@@ -112,7 +114,7 @@ export class HomeDetailComponent implements OnInit {
   // line, area
   autoScale = true;
 
-  constructor(private route: ActivatedRoute, private router: Router) {
+  constructor(private route: ActivatedRoute, private router: Router, private apiSerivce: FortniteApiService) {
     if (innerWidth / 2 > 300 && innerHeight / 2.5 > 200) {
       this.numberCardView_total = [innerWidth / 2, innerHeight / 1.8];
       this.numberCardView_solo = [innerWidth / 2, innerHeight / 2];
@@ -128,24 +130,22 @@ export class HomeDetailComponent implements OnInit {
     this.route.queryParams.subscribe(params => {
       this.name = params['name'];
       this.platform = params['platform'];
-      /*
-        api call
-      */
+
       this.initialApiData();
       this.initialChartsData();
 
-      setTimeout(() => {
-      this.ApiData = d_userStats;
-      this.ApiStatus = this.ApiData.status;
-      this.ApiValue = this.ApiData.value;
+      this.apiSerivce.getData(this.name, this.platform).subscribe((result) => {
+        this.ApiData = result;
+        this.ApiStatus = this.ApiData.status;
+        this.ApiValue = this.ApiData.value;
 
-      if (this.ApiStatus) {
-        this.createCharts(this.ApiValue);
-      } else {
-        console.log('error no user');
-        this.router.navigate(['/not-found'], {queryParams: {name: this.name, platform: this.platform} });
-      }
-      }, 500);
+        if (this.ApiStatus) {
+          this.createCharts(this.ApiValue);
+        } else {
+          // console.log('error no user');
+          this.router.navigate(['/not-found'], {queryParams: {name: this.name, platform: this.platform} });
+        }
+      });
     });
   }
 
