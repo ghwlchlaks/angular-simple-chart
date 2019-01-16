@@ -171,6 +171,9 @@ export class HomeDetailComponent implements OnInit {
   }
   private createCharts(ApiValue: IUserStats) {
     // platform
+    if (ApiValue.platform === 'xb1') {
+      ApiValue.platform = 'XBOX';
+    }
     this.apiPlatform = ApiValue.platform;
     this.apiUsername = ApiValue.username;
     // lastupdate time
